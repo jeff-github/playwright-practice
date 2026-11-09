@@ -1,0 +1,23 @@
+{
+  "name": "playwright-practice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Playwright interview practice repo: timed drills, design patterns worth defending, and a flake story with the fix attached.",
+  "scripts": {
+    "test": "playwright test --project=setup --project=e2e --project=api --project=drills",
+    "test:all": "playwright test",
+    "test:e2e": "playwright test --project=e2e",
+    "test:api": "playwright test --project=api",
+    "test:drills": "playwright test --project=drills",
+    "flaky": "playwright test --project=flaky-demo --repeat-each=10",
+    "report": "playwright show-report",
+    "ui": "playwright test --ui",
+    "codegen": "playwright codegen https://www.saucedemo.com",
+    "trace": "playwright show-trace"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1",
+    "@types/node": "22.10.2",
+    "typescript": "5.7.2"
+  }
+}
