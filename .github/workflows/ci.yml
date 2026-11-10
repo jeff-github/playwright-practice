@@ -73,3 +73,28 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 14
+
+  # The Python examples in docs/python/ are documentation the repo can prove.
+  # Its own job, not a step: different runtime, different package manager, and
+  # it parallelises with the shards instead of waiting behind them. No `needs:`
+  # for the same reason — nothing here depends on the JS suite.
+  python-examples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: docs/python/requirements.txt
+
+      - run: pip install -r docs/python/requirements.txt
+
+      # --with-deps installs the OS libraries Chromium needs on a bare runner.
+      # The Python binding downloads its own browser, independent of the Node
+      # one, so this is required even though the shards also install Chromium.
+      - run: python -m playwright install --with-deps chromium
+
+      - run: pytest docs/python/test_data_types.py -q
