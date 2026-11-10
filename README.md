@@ -1,8 +1,14 @@
 # playwright-practice
 
+[![tests](https://github.com/jeff-github/playwright-practice/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/jeff-github/playwright-practice/actions/workflows/ci.yml)
+
 A Playwright suite built to be **narrated in an interview**, not just run. Every
 file answers a question an SDET panel actually asks, and the comments say which
 question.
+
+The badge covers `npm test` — 20 tests over four parallel shards on Ubuntu,
+merged into one report. It does **not** cover `tests/flaky/flaky.spec.ts`, which
+is red by design; see the flake story below.
 
 ```bash
 npm install
