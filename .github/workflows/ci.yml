@@ -31,7 +31,11 @@ jobs:
       # runner. Leaving it off is the single most common CI failure.
       - run: npx playwright install --with-deps chromium
 
-      - run: npx playwright test --shard=${{ matrix.shard }}/4
+      # `npm test` names its projects explicitly, which keeps the
+      # deliberately-broken `flaky-demo` project out of the gate. Running a
+      # bare `npx playwright test` here would include it and CI would be red
+      # by design — one source of truth for the project list instead.
+      - run: npm test -- --shard=${{ matrix.shard }}/4
         env:
           CI: true
 

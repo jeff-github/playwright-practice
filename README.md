@@ -28,6 +28,11 @@ npm test
 
 ## Commands worth having in muscle memory
 
+> **`npm test`, not `npx playwright test`.** The npm script names its projects
+> explicitly so the broken-by-design `flaky-demo` project stays out. A bare
+> `npx playwright test` includes it and goes red on purpose — that is what
+> `npm run flaky` is for, and it is also why CI runs `npm test -- --shard=...`.
+
 ```bash
 npm test                  # setup + e2e + api + drills
 npm run test:api          # no browser, ~1s
