@@ -1,0 +1,7 @@
+# Pinned to the versions these examples were actually verified against.
+# Note these are independent of the Node side's @playwright/test pin in
+# package.json (1.49.1) — the two bindings version separately, and nothing
+# here needs them to match.
+playwright==1.65.0
+pytest==9.2.0
+pytest-playwright==0.10.0

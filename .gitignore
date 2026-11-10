@@ -8,3 +8,8 @@ results.xml
 # Saved auth state. Never commit this — in a real repo it holds live session
 # tokens. Regenerate it on every run via the `setup` project instead.
 .auth/
+
+# Python example venv (docs/python)
+docs/python/.venv/
+__pycache__/
+.pytest_cache/

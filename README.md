@@ -31,6 +31,8 @@ npm test
 | `tests/drills/network.spec.ts` | "How do you test the 500 the backend never returns?" |
 | `tests/flaky/` | "Tell me about a flaky test you fixed." |
 | `.github/workflows/ci.yml` | "How does this run on four machines?" |
+| `docs/polyglot/` | "Have you used Playwright outside TypeScript?" |
+| `docs/python/` | "What do your Python tests look like?" |
 
 ## Commands worth having in muscle memory
 
